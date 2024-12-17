@@ -1,0 +1,38 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: getRand_gateway
+  cloud:
+    gateway:
+      routes:
+        - id: getRand_userservice
+          uri: http://127.0.0.1:5002/
+          predicates:
+            - Path=/userservice/**
+#          filters:
+#            -
+        - id: getRand_datacollectionservice
+          uri: http://127.0.0.1:5003/
+          predicates:
+            - Path=/datacollectionservice/**
+#          filters:
+#            -
+        - id: getRand_analysticservice
+          uri: http://127.0.0.1:5004/
+          predicates:
+            - Path=/analysticservice/**
+
+#      default-filters:
+#        - name: GlobalFilter
+#          args:
+#            data: global filter data
+#            check: true
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka
