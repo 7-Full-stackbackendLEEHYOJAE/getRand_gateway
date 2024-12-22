@@ -22,20 +22,20 @@ spring:
               - DELETE
               - OPTIONS
       routes:
-        - id: getRand_userservice
-          uri: lb://getRand_userservice
+        - id: userservice
+          uri: lb://userservice
           predicates:
             - Path=/userservice/**
 #          filters:
 #            -
-        - id: getRand_datacollectionservice
-          uri: lb://getRand_datacollectionservice
+        - id: datacollectionservice
+          uri: lb://datacollectionservice
           predicates:
             - Path=/datacollectionservice/**
 #          filters:
 #            -
-        - id: getRand_analysticservice
-          uri: lb://getRand_analysticservice
+        - id: analysticservice
+          uri: lb://analysticservice
           predicates:
             - Path=/analysticservice/**
 
